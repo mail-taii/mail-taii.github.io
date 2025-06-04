@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+
+<div class="{{ include.type | default: 'list' }}__item">
+
+    <div itemscope itemtype="http://schema.org/Person">
+        <div class="author__avatar">
+            <img src="{{ person.avatar | default: '/path/to/default-avatar.jpg' }}" alt="{{ person.name }}'s avatar" />
+        </div>
+    </div>
+
+
+    <h2>{{ person.name }}</h2>
+    <p class="person-role">{{ person.role | default: '职位未设置' }}</p>
+</div>

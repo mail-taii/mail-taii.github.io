@@ -1,0 +1,23 @@
+{% include base_path %}
+
+{% assign name = include.name %}  <!-- 从外部传入 name -->
+
+{% assign person = include.person %}  <!-- 从外部传入 name -->
+
+<div class="people-nav">
+    <ul class="people-nav__links">
+        <li class="people-nav__item"><a href="{{ base_path }}/people/{{ name }}">Introduction</a></li>
+
+        {% if person.links contains "publications" %}
+        <li class="people-nav__item"><a href="{{ base_path }}/people/{{ person.slug }}/publications">Publications</a></li>
+        {% endif %}
+
+        {% if person.links contains "teaching" %}
+        <li class="people-nav__item"><a href="{{ base_path }}/people/{{ name }}/teaching">Teaching</a></li>
+        {% endif %}
+
+        {% if person.links contains "talks" %}
+        <li class="people-nav__item"><a href="{{ base_path }}/people/{{ person.slug }}/talks">Talks</a></li>
+        {% endif %}
+    </ul>
+</div>

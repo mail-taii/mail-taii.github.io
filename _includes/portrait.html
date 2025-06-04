@@ -1,0 +1,41 @@
+
+{% include base_path %}
+
+<div class="portrait-wrapper">
+    <a
+            href="{{ base_path }}{{ person.url }}" rel="permalink"
+            class="portrait {% if person.level == 'mentor' %} mentor-portrait {% endif %}"
+            data-style="{{ include.style }}"
+            aria-label="{{ person.name | default: "member link" }}"
+    >
+    {% if type %}
+    {% include icon.html icon=type.icon %}
+    {% endif %}
+
+    {% if person.avatar contains "://" %}
+    <img src="{{ person.avatar }}" alt="{{ person.name }}" class="portrait-image">
+    {% else %}
+    <img src="{{ person.avatar | prepend: "/images/" | prepend: base_path }}" class="portrait-image" alt="{{ person.name }}">
+    {% endif %}
+
+
+
+    {% if person.name %}
+    <span class="portrait-name">
+        {{ person.name }}
+      </span>
+    {% endif %}
+
+    {% if person.description or type %}
+    <span class="portrait-description">
+        {{ person.description | default: type.description }}
+      </span>
+    {% endif %}
+
+    {% if member.affiliation %}
+    <span class="portrait-affiliation">
+        {{ person.affiliation }}
+      </span>
+    {% endif %}
+    </a>
+</div>

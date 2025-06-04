@@ -1,0 +1,30 @@
+---
+layout: archive
+title: "Introduction"
+permalink: /main/
+author_profile: true
+redirect_from:
+- /
+- /main.html
+---
+
+{% include base_path %}
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <div style="margin: 0 10px;">
+        <img src="{{ base_path }}/images/badge.png" alt="Image 1" style="height: 100px;"/>
+    </div>
+    <div style="margin: 0 10px;">
+        <img src="{{ base_path }}/images/name.png" alt="Image 2" style="height: 100px;"/>
+    </div>
+</div>
+
+{% assign welcome_content = site.pages | where: "name", "welcome.md" | first %}
+{{ welcome_content.content | markdownify }}
+
+<br>
+<div style="text-align: center; margin-top: 20px;">
+    <p>如需进一步联系，请联系<a href="{{ base_path }}/people/jinbo" rel="permalink">金老师</a>或者<a href="{{ base_path }}/people/liwenhao" rel="permalink">李老师</a>
+    </p>
+</div>

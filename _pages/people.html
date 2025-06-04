@@ -1,0 +1,35 @@
+---
+layout: archive
+title: "People"
+permalink: /people/
+author_profile: true
+---
+
+{% include base_path %}
+
+<h1> Mentor</h1>
+
+{% assign mentors = site.people | where:"level","mentor" %}
+{% for person in mentors %}
+{% include portrait.html person=person %}
+{% endfor %}
+
+<br> <!-- 添加换行 -->
+<h1> Phd Student</h1>
+
+<br>
+
+{% assign doctors = site.people | where_exp: "person", "person.level == 'doctor'" %}
+{% for person in doctors %}
+{% include portrait.html person=person %}
+{% endfor %}
+
+<br> <!-- 添加换行 -->
+<h1> Master Student</h1>
+
+<br>
+
+{% assign masters = site.people | where:"level","master" %}
+{% for person in masters %}
+{% include portrait.html person=person %}
+{% endfor %}
