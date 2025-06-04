@@ -42,6 +42,12 @@ slug: "wyt"
 You are free to modify and add new information here!
 
 
+# How to Add Your Own Post
+If you want to add a new post, refer to the guide here:
+
+[如何加入自己的帖子](https://mail-taii.github.io//posts/2025/06/how-to-add-post/)
+
+
 # Run
 ```shell
 bundle exec jekyll serve -l -H localhost
