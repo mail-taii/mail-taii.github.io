@@ -9,428 +9,213 @@ tags: [html, posts, conference]
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRTPP: Enhancing Interpretable Event Sequence Modeling</title>
-    <!-- MathJax配置：启用内联美元符号和文本宏 -->
-    <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\$', '\$']],
-        macros: {
-          textbase: "\\text{base}",
-          textrule: "\\text{rule}",
-          textnum: "\\text{num}",
-          textNLL: "\\text{NLL}"
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HRTPP: Hybrid-Rule Temporal Point Processes</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f9;
+      color: #2d2d2d;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(90deg, #4e54c8, #8f94fb);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: -40px auto 60px;
+      padding: 20px;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #4e54c8;
+      margin-top: 0;
+      font-weight: 600;
+    }
+
+    h3 {
+      margin-top: 1.5em;
+      color: #333;
+      font-weight: 600;
+    }
+
+    p, li {
+      font-size: 1.05em;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .equation {
+      text-align: center;
+      margin: 20px 0;
+      background: #f0f2f7;
+      padding: 10px 20px;
+      border-left: 4px solid #8f94fb;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+    }
+
+    code {
+      background: #e8ebf5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
       }
-    };
-    </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #8e44ad;
-            --light: #f5f7fa;
-            --dark: #34495e;
-            --success: #27ae60;
+      section {
+        padding: 20px;
+      }
+    }
+
+    .link-buttons {
+        margin-top: 20px;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        .link-buttons .btn {
+        display: inline-block;
+        background-color: white;
+        color: #4e54c8;
+        border: 2px solid white;
+        padding: 10px 20px;
+        margin: 5px 10px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
-            padding: 20px;
+
+        .link-buttons .btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+        color: #fff;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(120deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .subtitle {
-            font-size: 1.4rem;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto;
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .author {
-            margin-top: 20px;
-            font-style: italic;
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-        
-        h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin: 20px 0 15px;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        
-        .math-formula {
-            background-color: var(--light);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-            overflow-x: auto;
-            font-family: monospace;
-            font-size: 1.1rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .feature {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--secondary);
-        }
-        
-        .feature h3 {
-            color: var(--dark);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .feature h3:before {
-            content: "•";
-            color: var(--accent);
-            font-size: 2rem;
-            margin-right: 10px;
-            line-height: 0;
-        }
-        
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 30px 0;
-        }
-        
-        .model-structure {
-            background: var(--light);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 30px 0;
-            border: 1px dashed var(--secondary);
-        }
-        
-        .model-item {
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 6px;
-            background: white;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-        }
-        
-        .model-item h4 {
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .benefit {
-            text-align: center;
-            padding: 25px;
-            border-radius: 8px;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .benefit:hover {
-            transform: scale(1.03);
-        }
-        
-        .benefit-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-        
-        .benefit h3 {
-            color: var(--primary);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .comparison {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+  </style>
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
-    <div class="container">
-        
-        <section class="card">
-            <h2>Introduction</h2>
-            <p>Temporal Point Process (TPP) models are essential tools for analyzing event sequence data in medical domains, but existing approaches face significant limitations. Many models either sacrifice interpretability for accuracy or fail to effectively incorporate both temporal dependencies and numerical features, hindering precise predictions in critical healthcare scenarios.</p>
-            
-            <div class="comparison">
-                <div>
-                    <h3>Existing TPP Limitations</h3>
-                    <ul>
-                        <li>Black-box models: Poor interpretability for clinical decisions.</li>
-                        <li>Inability to leverage continuous-valued clinical measurements.</li>
-                        <li>Difficulty capturing complex temporal dependencies.</li>
-                        <li>Limited capability to combine learned patterns with clinical rules.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>HRTPP Solution</h3>
-                    <ul>
-                        <li>Seamlessly integrates interpretable rules and data-driven approaches.</li>
-                        <li>Effectively incorporates numerical features for enhanced predictions.</li>
-                        <li>Captures both structured temporal relationships and dynamic patterns.</li>
-                        <li>Two-phase rule mining strategy for optimal rule discovery.</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <p>HRTPP addresses these challenges through a novel hybrid framework that significantly enhances both interpretability and predictive accuracy, particularly for medical event sequence modeling in conditions like AKI, Stroke, Sepsis, and CAD.</p>
-        </section>
-        
-        <section class="card">
-            <h2>Core Methodology</h2>
-            <p>HRTPP integrates three key components to determine the overall intensity function:</p>
-            
-            <div class="model-structure">
-                <div class="model-item">
-                    <h4>1. Basic Intensity ($λ_{\text{base}}$)</h4>
-                    <p>Models the intrinsic likelihood of event occurrence, representing fundamental event patterns:</p>
-                    <div class="math-formula">
-                        $λ_{\text{base}} = λ_0$
-                    </div>
-                    <p>Where $λ_0$ is a learnable parameter representing baseline event occurrence rate.</p>
-                </div>
-                
-                <div class="model-item">
-                    <h4>2. Rule-Based Intensity ($λ_{\text{rule}}(t)$)</h4>
-                    <p>Encodes temporal dependencies using predefined logic rules optimized through Bayesian optimization:</p>
-                    <div class="math-formula">
-                        $λ_{\text{rule}}(t) = \sum_{R_j \in R} α_j e_j(t)$
-                    </div>
-                    <div class="math-formula">
-                        $e_j(t) = \sum_{t_j \in T_j} d_{\text{rule}}(t - t_j)$
-                    </div>
-                    <p>Where $α_j$ is a learnable weight for rule $R_j$, $e_j(t)$ is the rule encoding function, $d_{\text{rule}}$ is a decay function, and $T_j$ is the set of timestamps when rule $R_j$ is triggered.</p>
-                </div>
-                
-                <div class="model-item">
-                    <h4>3. Numerical Feature Intensity ($λ_{\text{num}}(t)$)</h4>
-                    <p>Incorporates continuous-valued clinical attributes to dynamically modulate event probabilities:</p>
-                    <div class="math-formula">
-                        $λ_{\text{num}}(t) = \sum_{k=1}^{K} β_k g_k(t)$
-                    </div>
-                    <div class="math-formula">
-                        $g_k(t) = m_k \sum_{i:k_i=k} v_i d_{\text{num}}(t - t_i)$
-                    </div>
-                    <p>Where $β_k$ is a learnable weight for feature $k$, $g_k(t)$ is the feature encoder, $d_{\text{num}}$ is a time decay function, $m_k$ is a mask function, and $v_i$ is a numerical feature value.</p>
-                </div>
-                
-                <div class="model-item">
-                    <h4>Overall Intensity Function</h4>
-                    <p>The final intensity integrates all components through a Softplus activation:</p>
-                    <div class="math-formula">
-                        $λ(t|H_t) = \text{Softplus}(λ_{\text{base}}(t) + λ_{\text{rule}}(t) + λ_{\text{num}}(t))$
-                    </div>
-                    <div class="math-formula">
-                        $= \text{Softplus}\left(λ_0 + \sum_{R_j \in R} α_j \sum_{t_j \in T_j} d_{\text{rule}}(t - t_j) + \sum_{k=1}^{K} β_k m_k \sum_{i:k_i=k} v_i d_{\text{num}}(t - t_i)\right)$
-                    </div>
-                    <p>Where $Θ = \{α, β, γ, λ_0\}$ represents the learnable parameters.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="card">
-            <h2>Rule Mining Strategy</h2>
-            <p>HRTPP employs a sophisticated two-phase approach to discover valid temporal rules:</p>
-            
-            <div class="features-grid">
-                <div class="feature">
-                    <h3>Rule Candidate Generation</h3>
-                    <p>Derives temporal rules from historical event sequences using:</p>
-                    <ul>
-                        <li>Length restriction to ensure clinical interpretability</li>
-                        <li>Predicate filtering based on a pre-trained rule-free TPP model</li>
-                        <li>Search space reduction techniques</li>
-                        <li>Domain knowledge incorporation for medical relevance</li>
-                    </ul>
-                </div>
-                
-                <div class="feature">
-                    <h3>Rule Optimization via Bayesian Optimization</h3>
-                    <p>Refines the rule set to maximize log-likelihood:</p>
-                    <ul>
-                        <li>Probabilistic acquisition function balances exploration and exploitation</li>
-                        <li>Iterative rule set updates</li>
-                        <li>Predictive performance and interpretability trade-off management</li>
-                        <li>Computationally efficient optimization</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="math-formula">
-                <h3>Learning Framework</h3>
-                <p>Model parameters are optimized by maximizing the likelihood of observed event sequences:</p>
-                $L_{\text{NLL}}(Θ) = -\sum_{i=1}^{N} \log λ(t_i|H_{t_i}) + \int_{0}^{t_N} λ(t|H_t) dt$
-            </div>
-        </section>
-        
-        <section class="card">
-            <h2>Evaluation & Performance</h2>
-            <p>HRTPP was rigorously evaluated using a multi-criteria assessment framework:</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit">
-                    <div class="benefit-icon">📊</div>
-                    <h3>Rule Validity</h3>
-                    <p>Clinically meaningful rules validated by medical experts</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon">🔍</div>
-                    <h3>Model Fitting (NLL)</h3>
-                    <p>Superior fit to observed event sequences</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon">⏱️</div>
-                    <h3>Temporal Predictive Accuracy</h3>
-                    <p>Measured by RMSE and Rule Accuracy</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon">🏥</div>
-                    <h3>Clinical Validation</h3>
-                    <p>Case studies demonstrate disease progression insights</p>
-                </div>
-            </div>
-            
-            <div class="feature" style="margin-top: 30px;">
-                <h3>Key Results</h3>
-                <ul>
-                    <li>Outperformed state-of-the-art interpretable TPPs across all medical datasets (AKI, Stroke, Sepsis, CAD)</li>
-                    <li>Improvement in prediction accuracy by 15-22% compared to baseline models</li>
-                    <li>Generated clinically valid rules that explain disease progression pathways</li>
-                    <li>Ablation studies validated the contribution of numerical feature augmentation (+8-12% accuracy)</li>
-                    <li>Two-phase mining strategy improved rule extraction stability and accuracy</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section class="card">
-            <h2>Conclusion</h2>
-            <p>HRTPP represents a significant advancement in temporal point process modeling, successfully bridging the gap between interpretability and predictive power in healthcare applications. By integrating rule-based reasoning with data-driven learning and numerical feature augmentation, HRTPP provides clinicians with both accurate predictions and transparent insights into disease progression mechanisms.</p>
-            
-            <div style="margin-top: 30px; padding: 20px; background: var(--light); border-radius: 8px;">
-                <h3>Key Contributions</h3>
-                <ul>
-                    <li><strong>Innovative Hybrid Framework:</strong> Combines rule-based and feature-based intensities with a baseline model</li>
-                    <li><strong>Medical Domain Focus:</strong> Specifically designed to handle clinical event sequences and measurements</li>
-                    <li><strong>Novel Rule Mining:</strong> Two-phase strategy enhances rule discovery efficiency and quality</li>
-                    <li><strong>Scalable Learning:</strong> Effective optimization framework for joint learning of parameters</li>
-                    <li><strong>Clinical Validation:</strong> Verified through real-world medical datasets and case studies</li>
-                </ul>
-            </div>
-        </section>
 
-    </div>
-    
-    <script>
-        // 确保MathJax在页面加载后渲染公式
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof MathJax !== 'undefined') {
-                MathJax.typesetPromise();
-            } else {
-                console.log('MathJax is not loaded');
-            }
-        });
-    </script>
+  <header>
+    <h1>Hybrid-Rule Temporal Point Processes (HRTPP)</h1>
+    <p>A Novel Framework for Interpretable and Accurate Event Sequence Modeling in Healthcare</p>
+    <div class="link-buttons">
+    <a href="https://github.com/yy-c/HRTPP" target="_blank" class="btn">Code</a>
+    <a href="https://arxiv.org/abs/2504.11344" target="_blank" class="btn">Paper</a>
+</div>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        HRTPP is a novel framework designed to improve both the <strong>interpretability</strong> and <strong>predictive accuracy</strong> of Temporal Point Process (TPP) models, especially in clinical settings. Unlike traditional TPPs, HRTPP integrates logic-based rules and numerical attributes, leading to more precise and explainable predictions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Core Methodology</h2>
+
+      <h3>1. Basic Intensity (\( \lambda_{base} \))</h3>
+      <p>Represents the fundamental tendency of event occurrence as a trainable parameter:</p>
+      <div class="equation">$$ \lambda_{base} = \lambda_0 $$</div>
+
+      <h3>2. Rule-Based Intensity (\( \lambda_{rule}(t) \))</h3>
+      <p>Encodes temporal logic rules optimized through Bayesian search:</p>
+      <div class="equation">$$ \lambda_{rule}(t) = \sum_{R_j \in R} \alpha_j e_j(t) $$</div>
+      <div class="equation">$$ e_j(t) = \sum_{t_j \in T_j} d_{rule}(t - t_j) $$</div>
+
+      <h3>3. Numerical Feature Intensity (\( \lambda_{num}(t) \))</h3>
+      <p>Dynamically modulates intensity using clinical measurements:</p>
+      <div class="equation">$$ \lambda_{num}(t) = \sum_{k=1}^{K} \beta_k g_k(t) $$</div>
+      <div class="equation">$$ g_k(t) = m_k \sum_{i:k_i=k} v_i d_{num}(t - t_i) $$</div>
+      <p>Where \( m_k = 1 \) if \( X_k \in X_V \), and \( m_k = 0 \) otherwise.</p>
+
+      <h3>Combined Intensity Function</h3>
+      <div class="equation">
+        $$ \lambda(t|H_t) = \text{Softplus}\left( \lambda_{base}(t) + \lambda_{rule}(t) + \lambda_{num}(t) \right) $$
+      </div>
+      <div class="equation">
+        $$ \lambda(t|H_t) = \text{Softplus}\left( \lambda_0 + \sum_{R_j \in R} \alpha_j \sum_{t_j \in T_j} d_{rule}(t - t_j) + \sum_{k=1}^{K} \beta_k m_k \sum_{i:k_i = k} v_i d_{num}(t - t_i) \right) $$
+      </div>
+    </section>
+
+    <section>
+      <h2>Rule Mining Strategy</h2>
+
+      <h3>Rule Candidate Generation</h3>
+      <p>
+        Generates candidate rules from historical data by filtering predicates and controlling rule complexity. This reduces the combinatorial search space.
+      </p>
+
+      <h3>Bayesian Optimization</h3>
+      <p>
+        Refines the rule set by maximizing log-likelihood using a probabilistic acquisition function. This balances interpretability with predictive utility.
+      </p>
+    </section>
+
+    <section>
+      <h2>Training and Loss</h2>
+      <p>
+        HRTPP parameters are trained by minimizing the negative log-likelihood:
+      </p>
+      <div class="equation">
+        $$ NLL(\Theta) = -\sum_{i=1}^{N} \log \lambda(t_i|H_{t_i}) + \int_{0}^{t_N} \lambda(t|H_t) dt $$
+      </div>
+    </section>
+
+    <section>
+      <h2>Evaluation and Results</h2>
+      <p>Evaluation is based on:</p>
+      <ul>
+        <li>Rule validity</li>
+        <li>Model fitting quality (NLL)</li>
+        <li>Temporal prediction accuracy (RMSE, Rule Accuracy)</li>
+      </ul>
+      <p>
+        Tests on real-world datasets (AKI, Stroke, Sepsis, CAD) demonstrate that HRTPP outperforms existing interpretable models. Case studies validate the rules’ clinical relevance. Ablation confirms that numerical features and rule mining phases contribute significantly to performance and robustness.
+      </p>
+    </section>
+
+  </main>
+
 </body>
 </html>
