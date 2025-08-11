@@ -21,7 +21,7 @@ links:
 
 <div align="center">
 
-  # <b>曹昀炀</b>
+  <b style="font-size:2.2em;">曹昀炀</b>
   
   <a href="https://yy-c.github.io/" style="font-size:1.1em;">English Homepage</a>
 </div>
@@ -93,5 +93,5 @@ links:
   <li><b>摄影</b>：视频拍摄、剪辑</li>
   <li><b>围棋</b>：业余2段</li>
   <li><b>运动</b>：羽毛球、乒乓球、骑行等</li>
-  <li><b>旅游</li>
+  <li><b>旅游</b></li>
 </ul>
