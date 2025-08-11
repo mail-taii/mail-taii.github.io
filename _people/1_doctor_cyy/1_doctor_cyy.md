@@ -21,7 +21,7 @@ links:
 
 <div align="center">
 
-  <b style="font-size:2.2em;">曹昀炀</b>
+  <b style="font-size:2.2em;">曹昀炀</b><br>
   
   <a href="https://yy-c.github.io/" style="font-size:1.1em;">English Homepage</a>
 </div>
