@@ -10,7 +10,14 @@ slug: "cyy"
 ---
 
 
-## 代表性论文
+## 代表论文
 
-- **论文标题**. [期刊/会议名称], [年份]. [链接]
-- **论文标题**. [期刊/会议名称], [年份]. [链接]
+<b>Interpretable Hybrid-Rule Temporal Point Processes</b>. Joint European Conference on Machine Learning and Knowledge Discovery in Databases, 2025.<br>
+<span style="color:#555; font-size:0.97em;"> <b>Yunyang Cao</b>, Juekai Lin, Hongye Wang, Wenhao Li, Bo Jin</span>
+
+
+<b>Large Language Model for Extracting Complex Contract Information in Industrial Scenes</b>. NewInML workshop at International Conference on Machine Learning, 2025.<br>
+<span style="color:#555; font-size:0.97em;"><b>Yunyang Cao</b>, Yanjun Li, Silong Dai</span>
+
+<b>耦合先验拉普拉斯坐标的半监督图像分割算法</b>. 计算机应用, 2019.<br>
+<span style="color:#555; font-size:0.97em;"><b>曹昀炀</b>, 王涛</span>
