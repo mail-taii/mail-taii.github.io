@@ -33,6 +33,13 @@ links:
 
 ---
 
+## 👤 自我介绍
+
+<div style="margin-bottom:8px;">
+我是同济大学的博士研究生，研究兴趣包括 <b>可解释人工智能（XAI）</b>、<b>大型语言模型（LLM）</b> 和 <b>时间序列</b>。
+</div>
+<span style="color:#8B0000;font-weight:bold;">我在求职，目标岗位包括但不限于：研究科学家、机器学习工程师。</span>
+
 ## 📚 代表论文
 
 <div style="background:#f8f8fa;padding:12px 18px;border-radius:8px;margin-bottom:16px;">
@@ -46,17 +53,15 @@ links:
   <span style="color: #555;">ICML workshop, 2025</span>
 </div>
 <div style="background:#f8f8fa;padding:12px 18px;border-radius:8px;margin-bottom:16px;">
+  <b>RF-NTPP：基于规则融合的神经点过程模型</b><br>
+  <span style="font-size: 0.95em;">王泓烨, 林觉凯, <b>曹昀炀</b>, 李文浩, 金博</span><br>
+  <span style="color: #555;">计算机工程与应用, 2025</span>
+</div>
+<div style="background:#f8f8fa;padding:12px 18px;border-radius:8px;margin-bottom:16px;">
   <b>耦合先验拉普拉斯坐标的半监督图像分割算法</b><br>
   <span style="font-size: 0.95em;"><b>曹昀炀</b>, 王涛</span><br>
   <span style="color: #555;">计算机应用, 2019</span>
 </div>
-
-## 👤 自我介绍
-
-<div style="margin-bottom:8px;">
-我是同济大学的博士研究生，研究兴趣包括 <b>可解释人工智能（XAI）</b>、<b>大型语言模型（LLM）</b> 和 <b>时间序列</b>。
-</div>
-<span style="color:#8B0000;font-weight:bold;">我在求职，目标岗位包括但不限于：研究科学家、机器学习工程师。</span>
 
 ## 🎓 教育背景
 
