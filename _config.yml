@@ -21,7 +21,7 @@ repository               : "mail-taii.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "taii_logo_hign.png"
+  avatar           : "logo.png"
   name             : "MAIL-TAII"
   pronouns         : # example: "she/her"  
   bio              : "This is the lab for MAIL-TAII in Tongji"
