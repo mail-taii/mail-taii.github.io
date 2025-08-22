@@ -42,6 +42,22 @@ slug: "wyt"
 You are free to modify and add new information here!
 
 
+# 如何修改主页
+1. 打开 `_pages/main.html` 文件 - 这是主页的核心文件，重定向自根路径 `/`
+2. 打开 `_pages/welcome.md` 文件 - 这是主页的主要内容部分
+3. 修改相应的内容：
+   - 在 `main.html` 中可以修改页面布局、图片显示等
+   - 在 `welcome.md` 中可以修改文字内容、介绍信息等
+4. 如需修改网站标题、描述等基本信息，编辑 `_config.yml` 文件
+5. 提交 pull request
+
+主页文件结构说明：
+- `_pages/main.html`: 主页布局和重定向设置
+- `_pages/welcome.md`: 主页文字内容
+- `_config.yml`: 网站基本配置（标题、描述、作者信息等）
+- `images/`: 存放主页使用的图片文件
+
+
 # How to Add Your Own Post
 If you want to add a new post, refer to the guide here:
 
