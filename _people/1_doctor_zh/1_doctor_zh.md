@@ -6,7 +6,7 @@ level: "doctor"
 permalink: /people/zh
 location: "中国上海"
 description: "phd Student"
-avatar: "avatar/周昊照片_.jpg"
+avatar: "avatar/周昊照片.jpg"
 email: "haozhou68@tongji.edu.cn"
 slug: "zh"
 links:
