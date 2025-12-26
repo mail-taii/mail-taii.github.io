@@ -7,11 +7,11 @@ permalink: /people/yxy          # 个人页面URL路径
 venue: "Tongji University"  # 可以删除或修改
 date: 2025-12-25               # 可以删除或修改
 location: "中国上海"            # 所在位置（用于侧边栏显示）
-description: "Phd Student"   # 简短描述（用于人物列表显示）
+description: "PhD Student"   # 简短描述（用于人物列表显示）
 avatar: "avatar/易晓宇图片.png"  # 头像图片路径
 email: "xyyi19@tongji.edu.cn"  # 邮箱地址
 github: "salalalala23"          # GitHub用户名
-bio: "Phd Student"             # 简短自我介绍（用于侧边栏）
+bio: "PhD Student"             # 简短自我介绍（用于侧边栏）
 slug: "yxy"                    # 唯一标识符
 links:                         # 关联的页面类型（可以删减）
   - "publications"             # 显示你的论文
