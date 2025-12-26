@@ -11,7 +11,7 @@ description: "Phd Student"   # 简短描述（用于人物列表显示）
 avatar: "avatar/易晓宇图片.png"  # 头像图片路径
 email: "xyyi19@tongji.edu.cn"  # 邮箱地址
 github: "salalalala23"          # GitHub用户名
-bio: "This is bio"             # 简短自我介绍（用于侧边栏）
+bio: "Phd Student"             # 简短自我介绍（用于侧边栏）
 slug: "yxy"                    # 唯一标识符
 links:                         # 关联的页面类型（可以删减）
   - "publications"             # 显示你的论文
