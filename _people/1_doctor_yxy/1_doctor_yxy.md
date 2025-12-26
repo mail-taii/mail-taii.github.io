@@ -15,6 +15,6 @@ bio: "This is bio"             # 简短自我介绍（用于侧边栏）
 slug: "yxy"                    # 唯一标识符
 links:                         # 关联的页面类型（可以删减）
   - "publications"             # 显示你的论文
-  - "talks"                    # 显示你的演讲
-  - "teaching"                 # 显示你的教学
+  # - "talks"                    # 显示你的演讲
+  # - "teaching"                 # 显示你的教学
 ---
