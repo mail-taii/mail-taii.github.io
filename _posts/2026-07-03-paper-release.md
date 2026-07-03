@@ -1,7 +1,7 @@
 ---
 title: "InfraRL 论文发布"
 date: 2026-07-03
-permalink: /posts/2026/07/paper-release/
+permalink: /posts/InfraRL/
 excerpt: "InfraRL: A Benchmark for Constrained Resource Allocation in Large-Scale Infrastructure Asset Management 被列为 ICML 2026 / PMLR 306。"
 tags: [paper, publication, ICML, reinforcement-learning, wyt]
 ---
