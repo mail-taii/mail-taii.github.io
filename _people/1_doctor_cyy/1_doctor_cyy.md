@@ -11,7 +11,7 @@ email: "caoyunyang@tongji.edu.cn"
 github: "yy-c"
 googlescholar: "https://scholar.google.com/citations?user=NuN2X10AAAAJ"
 leetcode: "https://leetcode.cn/u/caoy-9/"
-bio: "Research interests: Explainable AI, Large Language Model."
+bio: "Research interests: Agentic Model, Explainable AI, Large Language Model."
 slug: "cyy"
 links:
   - "publications"
@@ -27,7 +27,7 @@ links:
 </div>
 
 <div align="center" style="margin-bottom:20px;">
-  上海市同济大学嘉定校区济事楼309R室 <br>
+  同济大学上海自主智能无人系统科学中心4号楼1118室 <br>
   <a href="mailto:caoyunyang@tongji.edu.cn">caoyunyang@tongji.edu.cn</a>
 </div>
 
@@ -36,16 +36,21 @@ links:
 ## 👤 自我介绍
 
 <div style="margin-bottom:8px;">
-我是同济大学的博士研究生，研究兴趣包括 <b>可解释人工智能（XAI）</b>、<b>大型语言模型（LLM）</b> 和 <b>时间序列</b>。
+我是同济大学的博士研究生，研究兴趣包括 <b>多智能体系统（MAS）</b>、<b>可解释人工智能（XAI）</b> 和 <b>大型语言模型（LLM）</b>。
 </div>
-<span style="color:#8B0000;font-weight:bold;">我在求职，目标岗位包括但不限于：研究科学家、机器学习工程师。</span>
+<span style="color:#8B0000;font-weight:bold;">我在求职，目标岗位包括但不限于：研究科学家、深度学习工程师。</span>
 
 ## 📚 代表论文
 
 <div style="background:#f8f8fa;padding:12px 18px;border-radius:8px;margin-bottom:16px;">
+  <b>MOCHA: Discovering Multi-Order Dynamic Causal Structure in Temporal Point Processes</b><br>
+  <span style="font-size: 0.95em;"><b>Yunyang Cao</b>, Juekai Lin, Wenhao Li, Bo Jin</span><br>
+  <span style="color: #555;">NeurIPS, 2026 <i>(CCF-A)</i></span>
+</div>
+<div style="background:#f8f8fa;padding:12px 18px;border-radius:8px;margin-bottom:16px;">
   <b>Interpretable Hybrid-Rule Temporal Point Processes</b><br>
   <span style="font-size: 0.95em;"><b>Yunyang Cao</b>, Juekai Lin, Hongye Wang, Wenhao Li, Bo Jin</span><br>
-  <span style="color: #555;">ECML-PKDD, 2025 <i>(CCF-B)</i></span>
+  <span style="color: #555;">ECML-PKDD, 2025 <i>(CCF-B, Oral)</i></span>
 </div>
 <div style="background:#f8f8fa;padding:12px 18px;border-radius:8px;margin-bottom:16px;">
   <b>Large Language Model for Extracting Complex Contract Information in Industrial Scenes</b><br>
@@ -80,7 +85,7 @@ links:
 ## 💼 实习经历
 
 <ul>
-  <li><b>美团</b> - 数据分析师 <span style="float:right;">2022.06 - 2022.08</span></li>
+  <li><b>美团</b> - 商业分析师 <span style="float:right;">2022.06 - 2022.08</span></li>
 </ul>
 
 ## 🥇 荣誉
