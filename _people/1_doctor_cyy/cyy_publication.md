@@ -11,6 +11,8 @@ slug: "cyy"
 
 
 ## 代表论文
+<b>MOCHA: Discovering Multi-Order Dynamic Causal Structure in Temporal Point Processes</b>. Advances in Neural Information Processing Systems, 2026.<br>
+<span style="color:#555; font-size:0.97em;"> <b>Yunyang Cao</b>, Juekai Lin, Wenhao Li, Bo Jin</span>
 
 <b>Interpretable Hybrid-Rule Temporal Point Processes</b>. Joint European Conference on Machine Learning and Knowledge Discovery in Databases, 2025.<br>
 <span style="color:#555; font-size:0.97em;"> <b>Yunyang Cao</b>, Juekai Lin, Hongye Wang, Wenhao Li, Bo Jin</span>
