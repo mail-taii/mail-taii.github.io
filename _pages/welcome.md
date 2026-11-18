@@ -1,7 +1,7 @@
 
 ### Who we are?
 
-Welcome to MAIL-TAII Lab (Multi-agent Artificial Intelligence Laboratory and Trustworthy Artificial Intelligence Institution )! 
+Welcome to MAIL-TAII Lab (Multi-agent Artificial Intelligence Laboratory and Trustworthy Artificial Intelligence Institute)! 
 
 We specialize in research on multi-intelligence reinforcement learning and are committed to exploring collaboration and competition among intelligences in order to advance the frontiers of AI technology.
 
